@@ -3,39 +3,33 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
 
-GP-SQLi adalah tool otomatis deteksi dan verifikasi celah keamanan **SQL Injection (SQLi)** berbasis Python murni yang sangat ringan. Tool ini beroperasi secara asinkron/cepat untuk mengidentifikasi celah Error-based dan Boolean-based blind pada parameter GET aplikasi web.
+GP-SQLi mendeteksi dan memverifikasi celah SQL Injection di parameter GET aplikasi web. Dibuat dengan Python murni, tanpa dependensi tambahan. Cara kerjanya sederhana: kirim payload, lalu baca respons server untuk mencari celah error-based dan boolean-based blind.
 
 ![GP-SQLi Terminal Preview](assets/sqli-preview.svg)
 
----
+## Fitur
 
-## Fitur Utama
-
-- **Menu Interaktif**: Cukup jalankan `python3 gp_sqli.py` tanpa argumen untuk masuk ke menu interaktif dengan logo personal **By Gopyr**.
-- **Deteksi Heuristik Cepat**: Mengirim payload khusus untuk memicu respons error database yang umum (MySQL, PostgreSQL, MS SQL, SQLite, Oracle).
-- **Boolean-Blind Validation**: Menguji variasi logika logika benar/salah secara otonom untuk memvalidasi kerentanan blind SQLi.
-- **Laporan JSON**: Menyimpan seluruh hasil pengujian dan data bukti eksploitasi dalam skema JSON terstruktur.
-
----
+- Jalankan `python3 gp_sqli.py` tanpa argumen untuk masuk ke menu interaktif dengan logo By Gopyr.
+- Deteksi error-based: mengirim payload pemicu error untuk MySQL, PostgreSQL, MS SQL, SQLite, dan Oracle.
+- Validasi boolean-blind: menguji variasi logika benar/salah untuk memastikan celahnya benar-benar ada, bukan sekadar error biasa.
+- Hasil pengujian beserta buktinya disimpan dalam file JSON.
 
 ## Cara Penggunaan
 
-### Mode Interaktif
+Mode interaktif:
 ```bash
 python3 gp_sqli.py
 ```
 
-### Mode Command Line
+Mode command line:
 ```bash
 python3 gp_sqli.py "http://testphp.vulnweb.com/listproducts.php?cat=1" --output report.json
 ```
 
----
+## Disclaimer
 
-## Disclaimer & Tanggung Jawab
-
-GP-SQLi adalah tool pengujian keamanan ofensif. Anda hanya diizinkan untuk menguji sistem yang Anda miliki secara sah atau sistem yang telah memberikan izin tertulis penuh kepada Anda. Penyalahgunaan tool ini untuk aktivitas ilegal berada sepenuhnya di bawah tanggung jawab pengguna pribadi.
+Ini tool pengujian keamanan ofensif. Uji hanya sistem milik Anda sendiri atau sistem yang memberi izin tertulis. Penyalahgunaan untuk aktivitas ilegal adalah tanggung jawab pengguna, bukan pengembang.
 
 ## Lisensi
 
-[MIT License](LICENSE) - Bebas digunakan dan dikembangkan oleh komunitas.
+[MIT License](LICENSE)
