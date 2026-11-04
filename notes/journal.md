@@ -1,0 +1,1 @@
+- 2026-11-04 fix: race condition on first load
